@@ -30,3 +30,11 @@
 }
 
 
+.products-carousel .carousel-slides {
+    display: flex;
+    justify-content: space-around;
+}
+
+.products-carousel {
+    min-height: 350px;
+}
