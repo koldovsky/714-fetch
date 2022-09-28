@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stickerz</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="shortcut icon" href="img/baby-yoda.svg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stickerz</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="img/baby-yoda.svg" type="image/x-icon">
 </head>
+
 <body>
-    <header id="home" class="header">
-        <nav class="header-nav">
-          <div class="container">
-            <div class="header-nav__logo">Stickerz</div>
-            <label for="burger-checkbox" class="burger-icon">☰</label>
-            <input id="burger-checkbox" type="checkbox">
-            <div class="header-nav__menu">
-              <a href="#home" class="header-nav__menu-item">Home</a>
-              <a href="#products" class="header-nav__menu-item">Products</a>
-              <a href="#contacts" class="header-nav__menu-item">Contacts</a>
-              <a href="cart.html" class="header-nav__menu-item">
-                Cart</a>
-              <a href="#" class="header-nav__menu-item clock-container"></a>
-            </div>
-          </div>
-        </nav>
-        <div class="header-banner container">
-          <h1 class="header-banner__h1">Stickerz</h1>
-          <div class="button-container">
-            <a href="#products" class="header-banner__button button"><span>Shop now</span></a>
-          </div>
+  <header id="home" class="header">
+    <nav class="header-nav">
+      <div class="container">
+        <div class="header-nav__logo">Stickerz</div>
+        <label for="burger-checkbox" class="burger-icon">☰</label>
+        <input id="burger-checkbox" type="checkbox">
+        <div class="header-nav__menu">
+          <a href="#home" class="header-nav__menu-item">Home</a>
+          <a href="#products" class="header-nav__menu-item">Products</a>
+          <a href="#contacts" class="header-nav__menu-item">Contacts</a>
+          <a href="cart.html" class="header-nav__menu-item">
+            Cart</a>
+          <a href="#" class="header-nav__menu-item clock-container"></a>
         </div>
-      </header>
-      <main>
-        <section class="main-products container">
-          <h2 id="products" class="main-products__h2">Products</h2>
-          <div class="products-carousel">
-            <button class="btn-prev">Previous</button>
-            <div class="carousel-slides"></div>
-            <button class="btn-next">Next</button>
-          </div>
-          <div class="main-products__list"> </div>
-        </section>
-      </main>
-      <footer id="contacts" class="footer container">
-        <h2>Contact <span class="ui-brand">Us</span></h2>
-        <form action="" class="footer__contacts">
-          <input type="text" name="name" placeholder="name" />
-          <input type="email" name="email" placeholder="email" />
-          <button class="button button-card">Submit</button>
-        </form>
-      </footer>
-      <script src="js/clock.js"></script>
-      <script src="js/products-list.js"></script>
-      <script src="js/products-carousel.js"></script>
+      </div>
+    </nav>
+    <div class="header-banner container">
+      <h1 class="header-banner__h1">Stickerz</h1>
+      <div class="button-container">
+        <a href="#products" class="header-banner__button button"><span>Shop now</span></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="main-products container">
+      <h2 id="products" class="main-products__h2">Products</h2>
+      <div class="products-carousel">
+        <button class="btn-prev">Previous</button>
+        <div class="carousel-slides"></div>
+        <button class="btn-next">Next</button>
+      </div>
+      <input type="text" class="currency" value="USD"><button class="convert">Convert</button>
+      <div class="main-products__list"> </div>
+    </section>
+  </main>
+  <footer id="contacts" class="footer container">
+    <h2>Contact <span class="ui-brand">Us</span></h2>
+    <form id="contact-form" action="https://formspree.io/f/xpzyvoez" method="POST">
+      <h3>Formspree</h3>
+      <label>Email:</label>
+      <input type="email" name="email" />
+      <label>Message:</label>
+      <input type="text" name="message" />
+      <button id="my-form-button">Submit</button>
+    </form>
+    <form id="contact-form-nodejs" action="contact" method="POST">
+      <h3>NodeJS</h3>
+      <label>Email:</label>
+      <input type="email" name="email" />
+      <label>Message:</label>
+      <input type="text" name="message" />
+      <button id="my-form-button">Submit</button>
+    </form>
+    <p id="contact-form-status"></p>
+  </footer>
+  <script src="js/clock.js"></script>
+  <script src="js/products-list.js"></script>
+  <script src="js/products-carousel.js"></script>
+  <script src="js/contact-form-formspree.js"></script>
+  <script src="js/contact-form-node.js"></script>
 </body>
+
 </html>

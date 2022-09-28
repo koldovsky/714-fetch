@@ -1,0 +1,6 @@
+{"email":"john@wall.com","message":"Hello"}
+{"email":"kirill.telnikov@gmail.com","message":"hello"}
+{"email":"w8cctxl@gmail.com","message":"Hi"}
+{"email":"yaroslavrick@gmail.com","message":"JS - is cool"}
+{"email":"maxxevyk7@gmail.com","message":"hello world!"}
+{"email":"test@test.com","message":"Hi"}

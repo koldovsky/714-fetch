@@ -1,37 +1,36 @@
-(function() {
+(async function() {
 
-    const products = [
-        {
-            id: 1,
-            title: "Baby Yoda",
-            img: "img/baby-yoda.svg",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            price: 10.99
-        },
-        {
-            id: 2,
-            title: "Banana",
-            img: "img/banana.svg",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            price: 9.99
-        },
-        {
-            id: 3,
-            title: "Girl",
-            img: "img/girl.svg",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            price: 8.99
-        },
-        {
-            id: 4,
-            title: "Viking",
-            img: "img/viking.svg",
-            description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-            price: 7.99
-        }
-    ];
+    let rate = 1;
+    let currencies;
+    const response = await fetch('api/products.json');
+    const products = await response.json();
+    
+    renderProducts();
 
-    function renderProducts(products) {
+    // try {
+    //   const response = await fetch('api1/products.json');
+    //   const products = await response.json();
+    //   renderProducts(products);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+    // fetch('api/products.json')
+    //   .then( response => response.json() )
+    //   .then( products => renderProducts(products) )
+    //   .catch( err => console.log(err) );
+
+    // const xhr = new XMLHttpRequest();
+    // xhr.onreadystatechange = function() {
+    //   if (xhr.readyState === 4 && xhr.status === 200) {
+    //     const products = JSON.parse(xhr.responseText);
+    //     renderProducts(products);
+    //   }
+    // }
+    // xhr.open('get', 'api/products.json', true);
+    // xhr.send();
+
+    function renderProducts() {
         const productsContainer = document.querySelector('.main-products__list');
         productsContainer.innerHTML = '';
         for (const product of products) {
@@ -46,13 +45,23 @@
                   Info
                 </button>
                 <button class="product-card__buttons-buy button button-card">
-                  Buy - ${product.price}
+                  Buy - ${(product.price * rate).toFixed(2)}
                 </button>
               </div>
             </article>`;
         }
     } 
 
-    renderProducts(products);
+    async function convertCurrency() {
+      const convertTo = document.querySelector('.currency').value;
+      if (!currencies) {
+        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+        currencies = await response.json();
+      }
+      rate = currencies.rates[convertTo];
+      renderProducts();
+    }
+
+    document.querySelector('.convert').addEventListener('click', convertCurrency);
 
 })();
